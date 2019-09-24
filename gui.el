@@ -23,10 +23,11 @@
 ;;                  nil 'prepend)
 ;;(add-to-list 'default-frame-alist '(font . "fontset-mplus1mn"))
 
-(create-fontset-from-ascii-font "CamingoCode-12" nil "camingocode")
+(create-fontset-from-ascii-font "CamingoCode:size=16:weight=normal:slant=normal" nil "camingocode")
 (set-fontset-font "fontset-camingocode"
                   'unicode
-                  "Source Han Sans JP-12"
+                  (font-spec :family "Noto Sans Mono CJK JP"
+														 :size 18)
                   nil
                   'append)
 (add-to-list 'default-frame-alist '(font . "fontset-camingocode"))

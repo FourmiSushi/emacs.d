@@ -7,6 +7,7 @@
 (setq show-paren-style 'parenthesis)
 ;; 行番号
 (setq display-line-numbers t)
+(global-display-line-numbers-mode)
 ;; 言語周り(よくわからん)
 (set-locale-environment nil)
 (set-language-environment "Japanese")
@@ -18,7 +19,7 @@
 (prefer-coding-system 'utf-8)
 ;; スペース2でインデントする時代
 (setq-default tab-width 2)
-(setq-default indent-tabs-mode nil)
+;;(setq-default indent-tabs-mode nil)
 ;; 選択範囲のハイライト
 (transient-mark-mode t)
 ;; 最初のあれはいらん
@@ -66,15 +67,29 @@
 
 ;; 補完
 (require 'company)
-(global-company-mode t)
+;; (global-company-mode t)
+(add-hook 'prog-mode-hook 'company-mode)
 (setq company-idle-delay 0)
-(setq cfompany-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
 (delq 'company-files company-backends)
 (add-to-list 'company-backends 'company-files)
 (company-tng-configure-default)
 
 ;; lsp
-(require 'eglot)
-(add-hook 'python-mode-hook 'eglot-ensure)
+(require 'lsp-mode)
+(require 'company-lsp)
+(setq lsp-elm-elm-path "/home/fourmisushi/.npm-packages/bin/elm")
+(add-hook 'python-mode-hook #'lsp)
+
+
+(require 'cider)
+(add-hook 'cider-mode-hook #'clj-refactor-mode)
+
+;; org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((awk . t)
+														 (shell . t)
+														 (python . t)
+														 (emacs-lisp . t)))
 

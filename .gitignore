@@ -1,5 +1,8 @@
 auto-save-list/
 elpa/
 session*
+.lsp-session*
+.org-id-locations
+eshell/
 *~
 #*#
