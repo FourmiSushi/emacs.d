@@ -23,14 +23,14 @@
 ;;                  nil 'prepend)
 ;;(add-to-list 'default-frame-alist '(font . "fontset-mplus1mn"))
 
-(create-fontset-from-ascii-font "CamingoCode:size=16:weight=normal:slant=normal" nil "camingocode")
-(set-fontset-font "fontset-camingocode"
+(create-fontset-from-ascii-font "Ubuntu Mono:size=16:weight=normal:slant=normal" nil "ubuntumono")
+(set-fontset-font "fontset-ubuntumono"
                   'unicode
                   (font-spec :family "Noto Sans Mono CJK JP"
-														 :size 18)
+														 :size 12)
                   nil
                   'append)
-(add-to-list 'default-frame-alist '(font . "fontset-camingocode"))
+(add-to-list 'default-frame-alist '(font . "fontset-ubuntumono"))
 
 
 ;; カーソル

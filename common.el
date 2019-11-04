@@ -22,6 +22,8 @@
 ;;(setq-default indent-tabs-mode nil)
 ;; 選択範囲のハイライト
 (transient-mark-mode t)
+;; 行削除
+(setq kill-whole-line 1)
 ;; 最初のあれはいらん
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
@@ -65,6 +67,9 @@
 (powerline-default-theme)
 
 
+(when (memq window-system '(mac ns x))
+	(exec-path-from-shell-initialize))
+
 ;; 補完
 (require 'company)
 ;; (global-company-mode t)
@@ -79,8 +84,7 @@
 ;; lsp
 (require 'lsp-mode)
 (require 'company-lsp)
-(setq lsp-elm-elm-path "/home/fourmisushi/.npm-packages/bin/elm")
-(add-hook 'python-mode-hook #'lsp)
+(add-hook 'python-mode-hook #'lsp-deferred)
 
 
 (require 'cider)
@@ -93,3 +97,7 @@
 														 (python . t)
 														 (emacs-lisp . t)))
 
+
+(require 'slime)
+(setq inferior-lisp-program "sbcl")
+(setq slime-contribs '(slime-fancy slime-company))
