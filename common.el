@@ -70,6 +70,9 @@
 (when (memq window-system '(mac ns x))
 	(exec-path-from-shell-initialize))
 
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
 ;; 補完
 (require 'company)
 ;; (global-company-mode t)
@@ -97,7 +100,37 @@
 														 (python . t)
 														 (emacs-lisp . t)))
 
-
 (require 'slime)
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy slime-company))
+
+
+(add-hook 'clojurescript-mode-hook #'inf-clojure-minor-mode)
+(add-hook 'clojurescript-mode-hook #'eldoc-mode)
+
+
+(require 'ox-latex)
+(require 'ox-bibtex)
+(setq org-latex-pdf-process '("latexmk"))
+
+(add-to-list 'org-latex-classes
+						 '("repoto"
+							 "\\documentclass[11pt, a4paper]{ltjsarticle}
+
+\\usepackage{amsmath, amssymb}
+\\usepackage{mathtools}
+\\usepackage[version=4]{mhchem}
+\\usepackage{graphicx}
+\\usepackage{ascmac}
+\\usepackage{siunitx}
+\\usepackage{booktabs}
+\\usepackage{lscape}
+\\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+
+\\mathtoolsset{showonlyrefs=true}
+\\sisetup{math-micro=\text{µ},text-micro=µ}"
+							 ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
