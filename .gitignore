@@ -1,9 +1,5 @@
-auto-save-list/
-elpa/
-session*
-.lsp-session*
-.org-id-locations
-eshell/
-kkcrc
-*~
-#*#
+*
+!.gitignore
+!common.el
+!gui.el
+!init.el

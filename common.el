@@ -19,7 +19,7 @@
 (prefer-coding-system 'utf-8)
 ;; スペース2でインデントする時代
 (setq-default tab-width 2)
-;;(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 ;; 選択範囲のハイライト
 (transient-mark-mode t)
 ;; 行削除
@@ -41,31 +41,14 @@
 (package-initialize)
 
 ;; テーマをロードする
-(load-theme 'gruvbox-dark-soft t)
-;; powerline
-(require 'powerline)
-(set-face-attribute 'powerline-active1 nil
-                    :foreground "LavenderBlush1"
-                    :background "HotPink3"
-                    :bold t
-                    :box nil
-                    :inherit 'mode-line)
-(set-face-attribute 'powerline-active2 nil
-                    :bold t
-                    :box nil
-                    :inherit 'mode-line)
-(set-face-attribute 'powerline-inactive1 nil
-                    :foreground "LavenderBlush2"
-                    :background "HotPink3"
-                    :bold t
-                    :box nil
-                    :inherit 'mode-line)
-(set-face-attribute 'powerline-inactive2 nil
-                    :bold t
-                    :box nil
-                    :inherit 'mode-line)
-(powerline-default-theme)
+(require 'doom-themes)
 
+(load-theme 'doom-sourcerer)
+(doom-themes-org-config)
+
+;; doom-modeline
+(require 'doom-modeline)
+(doom-modeline-mode 1)
 
 (when (memq window-system '(mac ns x))
 	(exec-path-from-shell-initialize))
@@ -134,3 +117,17 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(ido-mode 1)
+(ido-everywhere 1)
+
+(setq ido-enable-flex-matching t)
+
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
+(require 'amx)
+(amx-mode 1)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq ido-vertical-show-count t)
