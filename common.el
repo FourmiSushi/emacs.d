@@ -58,8 +58,10 @@
 
 ;; 補完
 (require 'company)
+(require 'company-web-html)
 ;; (global-company-mode t)
 (add-hook 'prog-mode-hook 'company-mode)
+(add-hook 'web-mode-hook 'company-mode)
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 1)
 (setq company-selection-wrap-around t)
@@ -70,7 +72,9 @@
 ;; lsp
 (require 'lsp-mode)
 (require 'company-lsp)
+(require 'lsp-haskell)
 (add-hook 'python-mode-hook #'lsp-deferred)
+(add-hook 'haskell-mode-hook #'lsp-deferred)
 
 
 (require 'cider)
@@ -98,8 +102,7 @@
 
 (add-to-list 'org-latex-classes
 						 '("repoto"
-							 "\\documentclass[11pt, a4paper]{ltjsarticle}
-
+							 "\\documentclass[a4paper,12pt]{ltjsarticle}
 \\usepackage{amsmath, amssymb}
 \\usepackage{mathtools}
 \\usepackage[version=4]{mhchem}
