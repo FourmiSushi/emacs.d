@@ -99,22 +99,13 @@
 (require 'ox-latex)
 (require 'ox-bibtex)
 (setq org-latex-pdf-process '("latexmk"))
-
+(setq org-latex-compiler "lualatex")
+(setq org-latex-with-hyperref nil)
 (add-to-list 'org-latex-classes
 						 '("repoto"
 							 "\\documentclass[a4paper,12pt]{ltjsarticle}
-\\usepackage{amsmath, amssymb}
-\\usepackage{mathtools}
-\\usepackage[version=4]{mhchem}
-\\usepackage{graphicx}
-\\usepackage{ascmac}
-\\usepackage{siunitx}
-\\usepackage{booktabs}
-\\usepackage{lscape}
-\\usepackage[top=20truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
-
 \\mathtoolsset{showonlyrefs=true}
-\\sisetup{math-micro=\text{µ},text-micro=µ}"
+\\sisetup{math-micro=\\text{µ},text-micro=µ}"
 							 ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
