@@ -103,9 +103,7 @@
 (setq org-latex-with-hyperref nil)
 (add-to-list 'org-latex-classes
 						 '("repoto"
-							 "\\documentclass[a4paper,12pt]{ltjsarticle}
-\\mathtoolsset{showonlyrefs=true}
-\\sisetup{math-micro=\\text{µ},text-micro=µ}"
+							 "\\documentclass[a4paper,12pt]{ltjsarticle}"
 							 ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
@@ -125,3 +123,6 @@
 (ido-vertical-mode 1)
 (setq ido-vertical-define-keys 'C-n-and-C-p-only)
 (setq ido-vertical-show-count t)
+
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
