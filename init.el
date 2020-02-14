@@ -203,14 +203,11 @@
        ("" "mhchem" nil)
        "\\sisetup{math-micro=\\text{µ},text-micro=µ}"))))
 
-(prog1 "slime"
-  (use-package slime-company :ensure t)
-  (use-package slime
-    :ensure t
-    :requires slime-compeny
-    :config
-    (setq inferior-lisp-program "sbcl")
-    (setq slime-contribs '(slime-fancy slime-company))))
+(use-package slime
+  :ensure slime-company
+  :config
+  (setq inferior-lisp-program "sbcl")
+  (slime-setup '(slime-fancy slime-company)))
 
 (prog1 "M-xの強化"
   (ido-mode 1)
