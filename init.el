@@ -207,7 +207,7 @@
   :ensure slime-company
   :config
   (setq inferior-lisp-program "sbcl")
-  (slime-setup '(slime-fancy slime-company)))
+  (slime-setup '(slime-fancy slime-company slime-asdf)))
 
 (prog1 "M-xの強化"
   (ido-mode 1)
