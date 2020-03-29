@@ -14,7 +14,7 @@
     ("88a3c267ce2132defd46f2a4761925983dcbc35b1c3cfff1dded164ce169fed4" "6231254e74298a1cf8a5fee7ca64352943de4b495e615c449e9bb27e2ccae709" default)))
  '(package-selected-packages
    (quote
-    (magit ido-vertical-mode amx ido-completing-read+ slime-company go-mode lsp-ui lsp-haskell company-lsp lsp-mode yasnippet smartparens exec-path-from-shell doom-modeline org-plus-contrib use-package company))))
+    (haskell-mode magit ido-vertical-mode amx ido-completing-read+ slime-company go-mode lsp-ui lsp-haskell company-lsp lsp-mode yasnippet smartparens exec-path-from-shell doom-modeline org-plus-contrib use-package company))))
 
 ;; ツールバー、スクロールバーとかを削除
 (tool-bar-mode -1)
@@ -232,3 +232,6 @@
 
 ;; Git対応
 (use-package magit :ensure t)
+
+;; Haskell
+(use-package haskell-mode :ensure t)
